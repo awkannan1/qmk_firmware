@@ -188,6 +188,7 @@ ifeq ($(strip $(LCD_ENABLE)), yes)
 endif
 
 ifeq ($(strip $(BACKLIGHT_ENABLE)), yes)
+    SRC += $(QUANTUM_DIR)/led_backlight.c
     ifeq ($(strip $(VISUALIZER_ENABLE)), yes)
         CIE1931_CURVE = yes
     endif
