@@ -35,7 +35,8 @@ ARMV = 6
 #   comment out to disable the options.
 #
 
-#SRC +=
+# SRC += led.c
+SRC += i2c_master.c
 
 #BOOTMAGIC_ENABLE = yes	# Virtual DIP switch configuration
 MOUSEKEY_ENABLE = yes	# Mouse keys
@@ -46,6 +47,11 @@ SLEEP_LED_ENABLE = yes  # Breathing sleep LED during USB suspend
 NKRO_ENABLE = yes	    # USB Nkey Rollover
 CUSTOM_MATRIX = no # Custom matrix file
 ENCODER_ENABLE = yes
+# BACKLIGHT_ENABLE = yes
 QWIIC_ENABLE += MICRO_OLED
 
+# RAW_ENABLE = yes
+# DYNAMIC_KEYMAP_ENABLE = yes
+
 DEFAULT_FOLDER = handwired/satisfaction75
+

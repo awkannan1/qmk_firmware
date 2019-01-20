@@ -15,8 +15,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef CONFIG_H
-#define CONFIG_H
+#pragma once
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xCA04
@@ -39,6 +38,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NUMBER_OF_ENCODERS 1
 #define ENCODERS_PAD_A { B9 }
 #define ENCODERS_PAD_B { B8 }
+
+#define BACKLIGHT_LEVELS 24
+#define BACKLIGHT_BREATHING
+#define BREATHING_PERIOD 6
 
 //LEDS A6, RGB B15
 
@@ -69,6 +72,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
 
+#define DYNAMIC_KEYMAP_LAYER_COUNT 4
+
+// EEPROM usage
+
+// TODO: refactor with new user EEPROM code (coming soon)
+#define EEPROM_MAGIC 0x451F
+#define EEPROM_MAGIC_ADDR 32
+// Bump this every time we change what we store
+// This will automatically reset the EEPROM with defaults
+// and avoid loading invalid data from the EEPROM
+#define EEPROM_VERSION 0x08
+#define EEPROM_VERSION_ADDR 34
+
+// Dynamic keymap starts after EEPROM version
+#define DYNAMIC_KEYMAP_EEPROM_ADDR 35
+// Dynamic macro starts after dynamic keymaps (35+(4*5*14*2)) = (35+560)
+#define DYNAMIC_KEYMAP_MACRO_EEPROM_ADDR 595
+#define DYNAMIC_KEYMAP_MACRO_EEPROM_SIZE 429
+#define DYNAMIC_KEYMAP_MACRO_COUNT 16
 
 
 /*
@@ -88,5 +110,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_ONESHOT
 //#define NO_ACTION_MACRO
 //#define NO_ACTION_FUNCTION
-
-#endif

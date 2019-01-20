@@ -9,6 +9,7 @@
 // #ifdef QWIIC_MICRO_OLED_ENABLE
 #include "qwiic.h"
 
+#include "led_custom.h"
 #include "timer.h"
 /* Artificial delay added to get media keys to work in the encoder*/
 #define MEDIA_KEY_DELAY 10
