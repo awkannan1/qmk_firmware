@@ -341,6 +341,8 @@ void encoder_update_kb(uint8_t index, bool clockwise) {
 void matrix_init_user(void) {
   rtcGetTime(&RTCD1, &last_timespec);
   queue_for_send = true;
+  // backlight_init_ports();
+  // backlight_set(4);
 }
 
 void matrix_scan_user(void) {
