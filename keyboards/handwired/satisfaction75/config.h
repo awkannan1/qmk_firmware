@@ -82,14 +82,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Bump this every time we change what we store
 // This will automatically reset the EEPROM with defaults
 // and avoid loading invalid data from the EEPROM
-#define EEPROM_VERSION 0x08
+#define EEPROM_VERSION 0x01
 #define EEPROM_VERSION_ADDR 34
 
 // Dynamic keymap starts after EEPROM version
 #define DYNAMIC_KEYMAP_EEPROM_ADDR 35
-// Dynamic macro starts after dynamic keymaps (35+(4*5*14*2)) = (35+560)
-#define DYNAMIC_KEYMAP_MACRO_EEPROM_ADDR 595
-#define DYNAMIC_KEYMAP_MACRO_EEPROM_SIZE 429
+// Dynamic macro starts after dynamic keymaps (35+(4*6*16*2)) = (35+768)
+#define DYNAMIC_KEYMAP_MACRO_EEPROM_ADDR 803
+#define DYNAMIC_KEYMAP_MACRO_EEPROM_SIZE 221
 #define DYNAMIC_KEYMAP_MACRO_COUNT 16
 
 
