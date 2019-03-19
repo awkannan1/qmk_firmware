@@ -53,5 +53,3 @@ RGBLIGHT_ENABLE = yes
 
 # RAW_ENABLE = yes
 # DYNAMIC_KEYMAP_ENABLE = yes
-
-DEFAULT_FOLDER = handwired/tesletron/venus_plus
