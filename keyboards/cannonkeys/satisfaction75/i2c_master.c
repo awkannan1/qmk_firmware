@@ -34,91 +34,74 @@ static uint8_t i2c_address;
 
 // This configures the I2C clock to 400khz assuming a 48Mhz clock
 // For more info : https://www.st.com/en/embedded-software/stsw-stm32126.html
-static const I2CConfig i2cconfig = {
-  STM32_TIMINGR_PRESC(0x00U) |
-  STM32_TIMINGR_SCLDEL(0x03U) | STM32_TIMINGR_SDADEL(0x01U) |
-  STM32_TIMINGR_SCLH(0x03U)  | STM32_TIMINGR_SCLL(0x09U),
-  0,
-  0
-};
+static const I2CConfig i2cconfig = {STM32_TIMINGR_PRESC(0x00U) | STM32_TIMINGR_SCLDEL(0x03U) | STM32_TIMINGR_SDADEL(0x01U) | STM32_TIMINGR_SCLH(0x03U) | STM32_TIMINGR_SCLL(0x09U), 0, 0};
 
 static i2c_status_t chibios_to_qmk(const msg_t status) {
-  switch (status) {
-    case I2C_NO_ERROR:
-      return I2C_STATUS_SUCCESS;
-    case I2C_TIMEOUT:
-      return I2C_STATUS_TIMEOUT;
-    // I2C_BUS_ERROR, I2C_ARBITRATION_LOST, I2C_ACK_FAILURE, I2C_OVERRUN, I2C_PEC_ERROR, I2C_SMB_ALERT
-    default:
-      return I2C_STATUS_ERROR;
-  }
+    switch (status) {
+        case I2C_NO_ERROR:
+            return I2C_STATUS_SUCCESS;
+        case I2C_TIMEOUT:
+            return I2C_STATUS_TIMEOUT;
+        // I2C_BUS_ERROR, I2C_ARBITRATION_LOST, I2C_ACK_FAILURE, I2C_OVERRUN, I2C_PEC_ERROR, I2C_SMB_ALERT
+        default:
+            return I2C_STATUS_ERROR;
+    }
 }
 
-__attribute__ ((weak))
-void i2c_init(void)
-{
-  // Try releasing special pins for a short time
-  palSetPadMode(GPIOB, 6, PAL_MODE_INPUT);
-  palSetPadMode(GPIOB, 7, PAL_MODE_INPUT);
+__attribute__((weak)) void i2c_init(void) {
+    // Try releasing special pins for a short time
+    palSetPadMode(GPIOB, 6, PAL_MODE_INPUT);
+    palSetPadMode(GPIOB, 7, PAL_MODE_INPUT);
 
-  chThdSleepMilliseconds(10);
+    chThdSleepMilliseconds(10);
 
-  palSetPadMode(GPIOB, 6, PAL_MODE_ALTERNATE(1) | PAL_STM32_OTYPE_OPENDRAIN);
-  palSetPadMode(GPIOB, 7, PAL_MODE_ALTERNATE(1) | PAL_STM32_OTYPE_OPENDRAIN);
+    palSetPadMode(GPIOB, 6, PAL_MODE_ALTERNATE(1) | PAL_STM32_OTYPE_OPENDRAIN);
+    palSetPadMode(GPIOB, 7, PAL_MODE_ALTERNATE(1) | PAL_STM32_OTYPE_OPENDRAIN);
 
-  //i2cInit(); //This is invoked by halInit() so no need to redo it.
+    // i2cInit(); //This is invoked by halInit() so no need to redo it.
 }
 
-i2c_status_t i2c_start(uint8_t address)
-{
-  i2c_address = address;
-  i2cStart(&I2C_DRIVER, &i2cconfig);
-  return I2C_STATUS_SUCCESS;
+i2c_status_t i2c_start(uint8_t address) {
+    i2c_address = address;
+    i2cStart(&I2C_DRIVER, &i2cconfig);
+    return I2C_STATUS_SUCCESS;
 }
 
-i2c_status_t i2c_transmit(uint8_t address, const uint8_t* data, uint16_t length, uint16_t timeout)
-{
-  i2c_address = address;
-  i2cStart(&I2C_DRIVER, &i2cconfig);
-  i2cAcquireBus(&I2C_DRIVER);
-  msg_t status = i2cMasterTransmitTimeout(&I2C_DRIVER, (i2c_address >> 1), data, length, 0, 0, TIME_MS2I(timeout));
-  i2cReleaseBus(&I2C_DRIVER);
-  return chibios_to_qmk(status);
+i2c_status_t i2c_transmit(uint8_t address, const uint8_t* data, uint16_t length, uint16_t timeout) {
+    i2c_address = address;
+    i2cStart(&I2C_DRIVER, &i2cconfig);
+    i2cAcquireBus(&I2C_DRIVER);
+    msg_t status = i2cMasterTransmitTimeout(&I2C_DRIVER, (i2c_address >> 1), data, length, 0, 0, TIME_MS2I(timeout));
+    i2cReleaseBus(&I2C_DRIVER);
+    return chibios_to_qmk(status);
 }
 
-i2c_status_t i2c_receive(uint8_t address, uint8_t* data, uint16_t length, uint16_t timeout)
-{
-  i2c_address = address;
-  i2cStart(&I2C_DRIVER, &i2cconfig);
-  msg_t status = i2cMasterReceiveTimeout(&I2C_DRIVER, (i2c_address >> 1), data, length, TIME_MS2I(timeout));
-  return chibios_to_qmk(status);
+i2c_status_t i2c_receive(uint8_t address, uint8_t* data, uint16_t length, uint16_t timeout) {
+    i2c_address = address;
+    i2cStart(&I2C_DRIVER, &i2cconfig);
+    msg_t status = i2cMasterReceiveTimeout(&I2C_DRIVER, (i2c_address >> 1), data, length, TIME_MS2I(timeout));
+    return chibios_to_qmk(status);
 }
 
-i2c_status_t i2c_writeReg(uint8_t devaddr, uint8_t regaddr, const uint8_t* data, uint16_t length, uint16_t timeout)
-{
-  i2c_address = devaddr;
-  i2cStart(&I2C_DRIVER, &i2cconfig);
+i2c_status_t i2c_writeReg(uint8_t devaddr, uint8_t regaddr, const uint8_t* data, uint16_t length, uint16_t timeout) {
+    i2c_address = devaddr;
+    i2cStart(&I2C_DRIVER, &i2cconfig);
 
-  uint8_t complete_packet[length + 1];
-  for(uint8_t i = 0; i < length; i++)
-  {
-    complete_packet[i+1] = data[i];
-  }
-  complete_packet[0] = regaddr;
+    uint8_t complete_packet[length + 1];
+    for (uint8_t i = 0; i < length; i++) {
+        complete_packet[i + 1] = data[i];
+    }
+    complete_packet[0] = regaddr;
 
-  msg_t status = i2cMasterTransmitTimeout(&I2C_DRIVER, (i2c_address >> 1), complete_packet, length + 1, 0, 0, TIME_MS2I(timeout));
-  return chibios_to_qmk(status);
+    msg_t status = i2cMasterTransmitTimeout(&I2C_DRIVER, (i2c_address >> 1), complete_packet, length + 1, 0, 0, TIME_MS2I(timeout));
+    return chibios_to_qmk(status);
 }
 
-i2c_status_t i2c_readReg(uint8_t devaddr, uint8_t regaddr, uint8_t* data, uint16_t length, uint16_t timeout)
-{
-  i2c_address = devaddr;
-  i2cStart(&I2C_DRIVER, &i2cconfig);
-  msg_t status = i2cMasterTransmitTimeout(&I2C_DRIVER, (i2c_address >> 1), &regaddr, 1, data, length, TIME_MS2I(timeout));
-  return chibios_to_qmk(status);
+i2c_status_t i2c_readReg(uint8_t devaddr, uint8_t regaddr, uint8_t* data, uint16_t length, uint16_t timeout) {
+    i2c_address = devaddr;
+    i2cStart(&I2C_DRIVER, &i2cconfig);
+    msg_t status = i2cMasterTransmitTimeout(&I2C_DRIVER, (i2c_address >> 1), &regaddr, 1, data, length, TIME_MS2I(timeout));
+    return chibios_to_qmk(status);
 }
 
-void i2c_stop(void)
-{
-  i2cStop(&I2C_DRIVER);
-}
+void i2c_stop(void) { i2cStop(&I2C_DRIVER); }
