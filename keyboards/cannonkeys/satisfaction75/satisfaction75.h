@@ -4,8 +4,10 @@
 
 #ifdef KEYBOARD_cannonkeys_satisfaction75_prototype
     #include "prototype.h"
-#else
+#elif KEYBOARD_cannonkeys_satisfaction75_rev1
     #include "rev1.h"
+#else
+    #include "rev2.h"
 #endif
 
 #include "via.h" // only for EEPROM address
