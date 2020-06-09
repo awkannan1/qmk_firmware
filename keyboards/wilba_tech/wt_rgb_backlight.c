@@ -564,7 +564,7 @@ const is31_led g_is31_leds[DRIVER_LED_TOTAL] = {
     {1, C9_13,  C8_13,  C7_13}, //D13
     {1, C9_14,  C8_14,  C7_14}, //D14
     {1, C9_15,  C8_15,  C6_14}, //D15
-    {1, C9_16,  C7_15,  C6_15}  //D16	
+    {1, C9_16,  C7_15,  C6_15}  //D16
 };
 #elif !defined(RGB_BACKLIGHT_M6_B)
 // This is a 7-bit address, that gets left-shifted and bit 0
@@ -808,7 +808,7 @@ const Point g_map_led_to_point[BACKLIGHT_LED_COUNT] PROGMEM = {
 const Point g_map_led_to_point_polar[BACKLIGHT_LED_COUNT] PROGMEM = {
     // LA0..LA17
     {59,129}, {69,129}, {80,138}, {88,154}, {95,175}, {100,200}, {104,227}, {107,255}, {128,226},
-    {59,255}, {64,255}, {69,255}, {75,255}, {80,255}, {84,255}, {88,255}, {91,255}, {95,255},  
+    {59,255}, {64,255}, {69,255}, {75,255}, {80,255}, {84,255}, {88,255}, {91,255}, {95,255},
     // LB0..LB17
     {53,255}, {48,255}, {44,255}, {40,255}, {35,255}, {255,255}, {255,255}, {255,255}, {255,255},
     {48,138}, {40,154}, {33,175}, {28,200}, {24,227}, {21,255}, {255,255}, {255,255}, {255,255},
@@ -819,7 +819,7 @@ const Point g_map_led_to_point_polar[BACKLIGHT_LED_COUNT] PROGMEM = {
     {0,26}, {0,60}, {0,94}, {0,128}, {0,162}, {0,218}, {227,193}, {234,245}, {255,255},
     {195,128}, {205,135}, {214,149}, {221,169}, {255,255}, {210,244}, {213,255}, {218,255}, {222,255},
     // LE0..LE17
-    {255,255}, {255,255}, {255,255}, {255,255}, {255,255}, {255,255}, {255,255}, {255,255}, {255,255}, 
+    {255,255}, {255,255}, {255,255}, {255,255}, {255,255}, {255,255}, {255,255}, {255,255}, {255,255},
     {70,255}, {66,255}, {62,255}, {59,255}, {56,255}, {73,255}, {76,255}, {79,255}, {84,255},
     // LF0..LF17
     {52,255}, {49,255}, {47,255}, {44,255}, {41,255}, {38,255}, {37,255}, {25,255}, {14,255},
@@ -883,7 +883,7 @@ const Point g_map_led_to_point_polar[BACKLIGHT_LED_COUNT] PROGMEM = {
 const Point g_map_led_to_point[BACKLIGHT_LED_COUNT] PROGMEM = {
     // LA1..LA50
     {0,0}, {4,16}, {6,32}, {2,48}, {16,0}, {24,16}, {28,32}, {36,48}, {32,0}, {40,16}, {44,32}, {52,48}, {48,0},
-    {56,16}, {60,32}, {68,48}, {64,0}, {72,16}, {76,32}, {84,48}, {80,0}, {88,16}, {92,32}, {100,48}, {96,0}, {104,16}, 
+    {56,16}, {60,32}, {68,48}, {64,0}, {72,16}, {76,32}, {84,48}, {80,0}, {88,16}, {92,32}, {100,48}, {96,0}, {104,16},
     {108,32}, {116,48}, {112,0}, {120,16}, {124,32}, {132,48}, {128,0}, {136,16}, {140,32}, {148,48}, {144,0}, {152,16},
     {156,32}, {164,48}, {160,0}, {168,16}, {172,32}, {180,48}, {176,0}, {184, 16}, {188,32}, {20,48}, {192,0}, {200,16},
     {255,255},// LA51 does not exit, dummy
@@ -896,7 +896,7 @@ const Point g_map_led_to_point_polar[BACKLIGHT_LED_COUNT] PROGMEM = {
     // LA1..LA50
     {96,255}, {109,255}, {128,242}, {147,255}, {93,255}, {105,238}, {128,192}, {154,216}, {89,255}, {101,208}, {128,155}, {159,188}, {85,255},
     {96,181}, {128,119}, {165,163}, {81,255}, {89,157}, {128,82}, {173,143}, {75,255}, {81,139}, {128,46}, {183,131}, {70,255}, {70,129},
-    {129,9}, {195,128}, {64,255}, {58,129}, {255,27}, {206,136}, {58,255}, {47,139}, {255,64}, {215,152}, {53,255}, {39,157}, {255,101}, 
+    {129,9}, {195,128}, {64,255}, {58,129}, {255,27}, {206,136}, {58,255}, {47,139}, {255,64}, {215,152}, {53,255}, {39,157}, {255,101},
     {222,175}, {47,255}, {32,181}, {255,137}, {228,201}, {43,255}, {27,208}, {255, 174}, {150,246}, {39,255}, {23,238},
     {255,255},// LA51 does not exit, dummy
     // LA52..LA60
@@ -940,19 +940,19 @@ const Point g_map_led_to_point_polar[BACKLIGHT_LED_COUNT] PROGMEM = {
 #elif defined(RGB_BACKLIGHT_DAWN60)
 const Point g_map_led_to_point[BACKLIGHT_LED_COUNT] PROGMEM = {
     // LA1..LA16
-	{104, 16}, {88 , 16}, {72 , 16}, {56 , 16}, {40 , 16}, {24 , 16}, {4  , 16}, {6  , 32}, 
-    {112,  0}, {96 ,  0}, {80 ,  0}, {64 ,  0}, {48 ,  0}, {32 ,  0}, {16 ,  0}, {0  ,  0}, 
+	{104, 16}, {88 , 16}, {72 , 16}, {56 , 16}, {40 , 16}, {24 , 16}, {4  , 16}, {6  , 32},
+    {112,  0}, {96 ,  0}, {80 ,  0}, {64 ,  0}, {48 ,  0}, {32 ,  0}, {16 ,  0}, {0  ,  0},
 
     // LB1..LB16
 	{128,  0}, {144,  0}, {160,  0}, {176,  0}, {192,  0}, {208,  0}, {224,  0}, {214, 32},
     {120, 16}, {136, 16}, {152, 16}, {168, 16}, {184, 16}, {200, 16}, {220, 16}, {224, 48},
 
     // LC1..LC16
-	{100, 48}, {84 , 48}, {68 , 48}, {52 , 48}, {36 , 48}, {102, 64}, {42 , 64}, {22 , 64}, 
-    {108, 32}, {92 , 32}, {76 , 32}, {60 , 32}, {44 , 32}, {28 , 32}, {10 , 48}, {2  , 64}, 
+	{100, 48}, {84 , 48}, {68 , 48}, {52 , 48}, {36 , 48}, {102, 64}, {42 , 64}, {22 , 64},
+    {108, 32}, {92 , 32}, {76 , 32}, {60 , 32}, {44 , 32}, {28 , 32}, {10 , 48}, {2  , 64},
 
     // LD1..LD16
-	{124, 32}, {140, 32}, {156, 32}, {172, 32}, {188, 32}, {180, 48}, {202, 48}, {224, 64}, 
+	{124, 32}, {140, 32}, {156, 32}, {172, 32}, {188, 32}, {180, 48}, {202, 48}, {224, 64},
     {116, 48}, {132, 48}, {148, 48}, {164, 48}, {160, 64},  {176, 64}, {192, 64}, {208, 64},
 
 	//RGB UNDERGLOW
@@ -962,13 +962,13 @@ const Point g_map_led_to_point[BACKLIGHT_LED_COUNT] PROGMEM = {
 
 const Point g_map_led_to_point_polar[BACKLIGHT_LED_COUNT] PROGMEM = {
 	//LA1..LA16
-	{70,129}, {80,139}, {89,157}, {96,181}, {101,208}, {105,238}, {109,255}, {128,247}, 
+	{70,129}, {80,139}, {89,157}, {96,181}, {101,208}, {105,238}, {109,255}, {128,247},
 	{64,255}, {70,255}, {75,255}, {80,255}, {85,255},  {89,255},  {93,255},  {96,255},
 	//LB1..LB16
 	{58,255}, {53,255}, {48,255}, {43,255}, {39,255},  {34,255}, {32,255}, {255,233},
 	{58,129}, {48,139}, {39,157}, {32,181}, {27,208}, {23,238}, {19,255}, {237,255},
 	//LC1..LC16
-	{183,131}, {173,143}, {165,163}, {159,188}, {154,216}, {188,255}, {170,255}, {165,255}, 
+	{183,131}, {173,143}, {165,163}, {159,188}, {154,216}, {188,255}, {170,255}, {165,255},
 	{128,9}, {128,46}, {128,82}, {128,119}, {128,155}, {128,192}, {147,255}, {161,255},
 	//LD1..LD16
 	{0,27}, {0,64}, {0,101}, {0,137}, {0,174}, {228,201}, {235,255}, {224,255},
@@ -976,7 +976,7 @@ const Point g_map_led_to_point_polar[BACKLIGHT_LED_COUNT] PROGMEM = {
 
 	//UNDERGLOW, {A,D}
 	//1 - 10
-	{91,255}, {84,255}, {74,255}, {60,255}, {48,255}, {39,255}, {32,255}, {27,255}, {0,255}, {236,255}, 
+	{91,255}, {84,255}, {74,255}, {60,255}, {48,255}, {39,255}, {32,255}, {27,255}, {0,255}, {236,255},
 	//11 - 20
 	{234,255}, {222,255}, {213,255}, {197,255}, {180,255}, {167,255}, {152,255}, {147,255}, {128,255}, {101,255}
 };
@@ -1207,15 +1207,15 @@ const uint8_t g_map_row_column_to_led[MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 // A16, A15, A14, A13, A12, A11, A10,  A9,  B1,  B2,  B3,  B4,  B5,  B6,
 //  A7,  A6,  A5,  A4,  A3,  A2,  A1,  B9, B10, B11, B12, B13, B14, B15,
 //  A8, C14, C13, C12, C11, C10,  C9,  D1,  D2,  D3,  D4,  D5,  B8,  B7,
-// C15,  C5,  C4,  C3,  C2,  C1,  D9, D10, D11, D12, ---,  D6,  D7, B16, 
-// C16,  C8,  C7, ---, ---,  C6, ---, ---, ---, D13, D14, D15, D16,  D8,	
+// C15,  C5,  C4,  C3,  C2,  C1,  D9, D10, D11, D12, ---,  D6,  D7, B16,
+// C16,  C8,  C7, ---, ---,  C6, ---, ---, ---, D13, D14, D15, D16,  D8,
 const uint8_t g_map_row_column_to_led[MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 	{ -1+16, -1+15, -1+14, -1+13, -1+12, -1+11, -1+10, -1+9 , 15+1 , 15+2 , 15+3 , 15+4 , 15+5 , 15+6 },
 	{ -1+7 , -1+6 , -1+5 , -1+4 , -1+3 , -1+2 , -1 +1, 15+9 , 15+10, 15+11, 15+12, 15+13, 15+14, 15+15},
 	{ -1+8 , 31+14, 31+13, 31+12, 31+11, 31+10, 31+9 , 47+1 , 47+2 , 47+3 , 47+4 , 47+5 , 15+8 , 15+7 },
 	{ 31+15, 31+5 , 31+4 , 31+3 , 31+2 , 31+1 , 47+9 , 47+10, 47+11, 47+12, 255  ,47+6 , 47+7 , 15+16},
 	{ 31+16, 31+8 , 31+7 , 255  , 255  , 31+6 , 255  , 255  , 255  , 47+13, 47+14, 47+15, 47+16, 47+8 }
-};	
+};
 #endif
 
 void map_row_column_to_led( uint8_t row, uint8_t column, uint8_t *led )
@@ -1278,7 +1278,7 @@ void backlight_set_color( int index, uint8_t red, uint8_t green, uint8_t blue )
         g_ws2812_leds[index - DRIVER_LED_TOTAL].r = red;
         g_ws2812_leds[index - DRIVER_LED_TOTAL].g = green;
         g_ws2812_leds[index - DRIVER_LED_TOTAL].b = blue;
-        ws2812_setleds(g_ws2812_leds, WS2812_LED_TOTAL);    
+        ws2812_setleds(g_ws2812_leds, WS2812_LED_TOTAL);
     }
 #else
     IS31FL3731_set_color( index, red, green, blue );
@@ -1301,7 +1301,7 @@ void backlight_set_color_all( uint8_t red, uint8_t green, uint8_t blue )
         g_ws2812_leds[i].g = green;
         g_ws2812_leds[i].b = blue;
     }
-    ws2812_setleds(g_ws2812_leds, WS2812_LED_TOTAL);    
+    ws2812_setleds(g_ws2812_leds, WS2812_LED_TOTAL);
 #else
     IS31FL3731_set_color_all( red, green, blue );
 #endif
@@ -1355,24 +1355,24 @@ void backlight_timer_disable(void)
 #else //STM32, use GPT with TIM4. Enable in halconf.h
 static void gpt_backlight_timer_task(GPTDriver *gptp);
 // Timer setup at 200Khz, callback at 10k ticks = 20Hz
-static GPTConfig gpt4cfg1 = {
+static GPTConfig gpt3cfg1 = {
     .frequency = 200000U,
     .callback  = gpt_backlight_timer_task
 };
 
 void backlight_timer_init(void)
 {
-    gptStart(&GPTD4, &gpt4cfg1);
+    gptStart(&GPTD3, &gpt3cfg1);
 }
 
 void backlight_timer_enable(void)
 {
-    gptStartContinuous(&GPTD4, 10000);
+    gptStartContinuous(&GPTD3, 10000);
 }
 
 void backlight_timer_disable(void)
 {
-    gptStopTimer(&GPTD4);
+    gptStopTimer(&GPTD3);
 }
 #endif //!defined(RGB_BACKLIGHT_HS60) && !defined(RGB_BACKLIGHT_NK65)
 
@@ -1508,12 +1508,12 @@ void backlight_effect_alphas_mods(void)
             }
         }
     }
-#if defined(RGB_BACKLIGHT_DAWN60) 
+#if defined(RGB_BACKLIGHT_DAWN60)
 	for (int i = 0; i < WS2812_LED_TOTAL; i++) {
-		if ((RGB_UNDERGLOW_ALPHA_TOP_START <= i && i <= RGB_UNDERGLOW_ALPHA_TOP_END) || 
+		if ((RGB_UNDERGLOW_ALPHA_TOP_START <= i && i <= RGB_UNDERGLOW_ALPHA_TOP_END) ||
             (RGB_UNDERGLOW_ALPHA_BOT_START <= i && i <= RGB_UNDERGLOW_ALPHA_BOT_END)) {
             backlight_set_color(i + DRIVER_LED_TOTAL, rgb1.r, rgb1.g, rgb1.b);
-		} else {    
+		} else {
             backlight_set_color(i + DRIVER_LED_TOTAL, rgb2.r, rgb2.g, rgb2.b);
 		}
 	}
@@ -2430,7 +2430,7 @@ void backlight_init_drivers(void)
     // This actually updates the LED drivers
     IS31FL3731_update_led_control_registers( ISSI_ADDR_1, 0 );
     IS31FL3731_update_led_control_registers( ISSI_ADDR_2, 1 );
-#if defined(RGB_BACKLIGHT_U80_A)    
+#if defined(RGB_BACKLIGHT_U80_A)
     IS31FL3731_update_led_control_registers( ISSI_ADDR_3, 2 );
 #endif
 #endif // !defined(RGB_BACKLIGHT_M6_B)
